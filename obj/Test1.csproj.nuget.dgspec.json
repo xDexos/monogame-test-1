@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\MonoGame\\Test1\\Test1.csproj": {}
+    "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj": {}
   },
   "projects": {
-    "C:\\dev\\MonoGame\\Test1\\Test1.csproj": {
+    "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\MonoGame\\Test1\\Test1.csproj",
+        "projectUniqueName": "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj",
         "projectName": "Test1",
-        "projectPath": "C:\\dev\\MonoGame\\Test1\\Test1.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\MonoGame\\Test1\\obj\\",
+        "projectPath": "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj",
+        "packagesPath": "C:\\Users\\dexos\\.nuget\\packages\\",
+        "outputPath": "g:\\dev\\MonoGame\\monogame-test-1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\dexos\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\dexos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dexos\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,8 +13,9 @@ public class Game1 : Game
     Vector2 ballPosition;
     float ballSpeed;
 
-    Texture2D humanTexture;
-    Texture2D hatTexture;
+    SpriteFont font;
+
+    Texture2D roomBackground;
 
     public Game1()
     {
@@ -39,9 +40,11 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
 
-        humanTexture = Content.Load<Texture2D>("concept_2");
         ballTexture = Content.Load<Texture2D>("ball");
-        hatTexture = Content.Load<Texture2D>("concept_hat");
+
+        font = Content.Load<SpriteFont>("Fonts/font1");
+
+        roomBackground = Content.Load<Texture2D>("room_1");
     }
 
     protected override void Update(GameTime gameTime)
@@ -53,6 +56,7 @@ public class Game1 : Game
 
         float updateBallSpeed = ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+        // Pobieranie sygnałów wejścia
         var kstate = Keyboard.GetState();
 
         if (kstate.IsKeyDown(Keys.Up))
@@ -75,6 +79,7 @@ public class Game1 : Game
             ballPosition.X += updateBallSpeed;
         }
 
+        // Maksymalny zakres poruszanie się, ograniczenie pozycji
         if (ballPosition.X > _graphics.PreferredBackBufferWidth - ballTexture.Width / 2)
         {
             ballPosition.X = _graphics.PreferredBackBufferWidth - ballTexture.Width / 2;
@@ -102,7 +107,19 @@ public class Game1 : Game
 
         // TODO: Add your drawing code here
 
-        _spriteBatch.Begin();
+        _spriteBatch.Begin(
+            SpriteSortMode.Deferred,
+            BlendState.AlphaBlend,
+            SamplerState.PointClamp,
+            DepthStencilState.None,
+            RasterizerState.CullCounterClockwise
+        );
+
+        _spriteBatch.Draw(
+            roomBackground,
+            new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight),
+            Color.White
+        );
 
         _spriteBatch.Draw(
             ballTexture, // zaladowana textura
@@ -115,9 +132,23 @@ public class Game1 : Game
             SpriteEffects.None, // efekt
             0f); // warstwa
 
-        _spriteBatch.Draw(humanTexture, new Rectangle(0, 0, 100, 100), Color.White);
 
-        _spriteBatch.Draw(hatTexture, new Rectangle(0, 0, 100, 100), Color.White);
+        Vector2 textPosition = new Vector2(
+            _graphics.PreferredBackBufferWidth / 2, // Szerokość okna / 2
+            25 // Wysokość okna / 2
+        );
+        Vector2 textSize = font.MeasureString("Hello World");
+        Vector2 textOrigin = textSize / 2;
+        _spriteBatch.DrawString(
+            font,
+            "Hello World",
+            textPosition,
+            Color.White,
+            0f,
+            textOrigin,
+            1f,
+            SpriteEffects.None,
+            0.5f);
 
         _spriteBatch.End();
 
