@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj": {}
+    "G:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj": {}
   },
   "projects": {
-    "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj": {
+    "G:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj",
-        "projectName": "Test1",
-        "projectPath": "g:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj",
+        "projectUniqueName": "G:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj",
+        "projectName": "Karp'O'Killer",
+        "projectPath": "G:\\dev\\MonoGame\\monogame-test-1\\Test1.csproj",
         "packagesPath": "C:\\Users\\dexos\\.nuget\\packages\\",
-        "outputPath": "g:\\dev\\MonoGame\\monogame-test-1\\obj\\",
+        "outputPath": "G:\\dev\\MonoGame\\monogame-test-1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\dexos\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
