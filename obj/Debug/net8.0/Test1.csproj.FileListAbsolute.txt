@@ -55,3 +55,7 @@ g:\dev\MonoGame\monogame-test-1\obj\Debug\net8.0\Test1.genruntimeconfig.cache
 g:\dev\MonoGame\monogame-test-1\obj\Debug\net8.0\ref\Test1.dll
 g:\dev\MonoGame\monogame-test-1\bin\Debug\net8.0\Content\room_1.xnb
 g:\dev\MonoGame\monogame-test-1\bin\Debug\net8.0\Content\Fonts\font1.xnb
+g:\dev\MonoGame\monogame-test-1\bin\Debug\net8.0\Content\target.xnb
+g:\dev\MonoGame\monogame-test-1\bin\Debug\net8.0\Content\oobraz_1.xnb
+g:\dev\MonoGame\monogame-test-1\bin\Debug\net8.0\Content\startButton.xnb
+g:\dev\MonoGame\monogame-test-1\bin\Debug\net8.0\Content\N_concept_1.xnb

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,27 +10,39 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    Texture2D ballTexture;
-    Vector2 ballPosition;
-    float ballSpeed;
+    private SceneManager sceneManager;
 
-    SpriteFont font;
+    // SpriteFont font;
+    // Texture2D targetTexture;
+    // Texture2D gameBackgorundTexture;
 
-    Texture2D roomBackground;
+    // Vector2 targetPosition = Vector2.Zero;
+    // string scoreText = "Wynik:";
+    // Vector2 textSize;
+    // const int TARGET_RAFIUS = 50;
+
+    // MouseState mState;
+    // bool mReleased = true;
+    // int score = 0;
+    // int timeText = 60;
+    // float timeFollow = 0;
+
+    // Random rand = new Random();
 
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
+        sceneManager = new();
     }
 
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
 
-        ballPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
-        ballSpeed = 100f;
+        // targetPosition.X = rand.Next(TARGET_RAFIUS, _graphics.PreferredBackBufferWidth - TARGET_RAFIUS);
+        // targetPosition.Y = rand.Next(TARGET_RAFIUS, _graphics.PreferredBackBufferHeight - TARGET_RAFIUS);
 
         base.Initialize();
     }
@@ -40,11 +53,7 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
 
-        ballTexture = Content.Load<Texture2D>("ball");
-
-        font = Content.Load<SpriteFont>("Fonts/font1");
-
-        roomBackground = Content.Load<Texture2D>("room_1");
+        sceneManager.AddScene(new MainMenu(this, _graphics, Content, sceneManager));
     }
 
     protected override void Update(GameTime gameTime)
@@ -54,49 +63,7 @@ public class Game1 : Game
 
         // TODO: Add your update logic here
 
-        float updateBallSpeed = ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        // Pobieranie sygnałów wejścia
-        var kstate = Keyboard.GetState();
-
-        if (kstate.IsKeyDown(Keys.Up))
-        {
-            ballPosition.Y -= updateBallSpeed;
-        }
-
-        if (kstate.IsKeyDown(Keys.Down))
-        {
-            ballPosition.Y += updateBallSpeed;
-        }
-
-        if (kstate.IsKeyDown(Keys.Left))
-        {
-            ballPosition.X -= updateBallSpeed;
-        }
-
-        if (kstate.IsKeyDown(Keys.Right))
-        {
-            ballPosition.X += updateBallSpeed;
-        }
-
-        // Maksymalny zakres poruszanie się, ograniczenie pozycji
-        if (ballPosition.X > _graphics.PreferredBackBufferWidth - ballTexture.Width / 2)
-        {
-            ballPosition.X = _graphics.PreferredBackBufferWidth - ballTexture.Width / 2;
-        }
-        else if (ballPosition.X < ballTexture.Width / 2)
-        {
-            ballPosition.X = ballTexture.Width / 2;
-        }
-
-        if (ballPosition.Y > _graphics.PreferredBackBufferHeight - ballTexture.Height / 2)
-        {
-            ballPosition.Y = _graphics.PreferredBackBufferHeight - ballTexture.Height / 2;
-        }
-        else if (ballPosition.Y < ballTexture.Height / 2)
-        {
-            ballPosition.Y = ballTexture.Height / 2;
-        }
+        sceneManager.GetCurrentScene().Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -108,47 +75,10 @@ public class Game1 : Game
         // TODO: Add your drawing code here
 
         _spriteBatch.Begin(
-            SpriteSortMode.Deferred,
-            BlendState.AlphaBlend,
-            SamplerState.PointClamp,
-            DepthStencilState.None,
-            RasterizerState.CullCounterClockwise
+            samplerState: SamplerState.PointClamp
         );
 
-        _spriteBatch.Draw(
-            roomBackground,
-            new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight),
-            Color.White
-        );
-
-        _spriteBatch.Draw(
-            ballTexture, // zaladowana textura
-            ballPosition, // pozycja
-            null, // rectangle?
-            Color.White, // kolor
-            0f, // rotacja
-            new Vector2(ballTexture.Width / 2, ballTexture.Height / 2), // punkt origin
-            Vector2.One, // skala
-            SpriteEffects.None, // efekt
-            0f); // warstwa
-
-
-        Vector2 textPosition = new Vector2(
-            _graphics.PreferredBackBufferWidth / 2, // Szerokość okna / 2
-            25 // Wysokość okna / 2
-        );
-        Vector2 textSize = font.MeasureString("Hello World");
-        Vector2 textOrigin = textSize / 2;
-        _spriteBatch.DrawString(
-            font,
-            "Hello World",
-            textPosition,
-            Color.White,
-            0f,
-            textOrigin,
-            1f,
-            SpriteEffects.None,
-            0.5f);
+        sceneManager.GetCurrentScene().Draw(_spriteBatch);
 
         _spriteBatch.End();
 

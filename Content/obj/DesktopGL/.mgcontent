@@ -6,9 +6,17 @@
   <SourceFiles>
     <File>g:/dev/MonoGame/monogame-test-1/Content/ball.png</File>
     <File>g:/dev/MonoGame/monogame-test-1/Content/Fonts/font1.spritefont</File>
+    <File>g:/dev/MonoGame/monogame-test-1/Content/N_concept_1.jpg</File>
+    <File>g:/dev/MonoGame/monogame-test-1/Content/oobraz_1.jpg</File>
     <File>g:/dev/MonoGame/monogame-test-1/Content/room_1.png</File>
+    <File>g:/dev/MonoGame/monogame-test-1/Content/startButton.png</File>
+    <File>g:/dev/MonoGame/monogame-test-1/Content/target.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

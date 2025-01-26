@@ -1,2 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"g:/dev/MonoGame/monogame-test-1/Content/Fonts/font1.spritefont","g:/dev/MonoGame/monogame-test-1/Content/bin/DesktopGL/Fonts/font1.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0,162026
+"g:/dev/MonoGame/monogame-test-1/Content/N_concept_1.jpg","g:/dev/MonoGame/monogame-test-1/Content/bin/DesktopGL/N_concept_1.xnb","TextureProcessor","Texture2DContent",370139,33177685,0,7770759
