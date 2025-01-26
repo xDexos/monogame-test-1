@@ -12,23 +12,6 @@ public class Game1 : Game
 
     private SceneManager sceneManager;
 
-    // SpriteFont font;
-    // Texture2D targetTexture;
-    // Texture2D gameBackgorundTexture;
-
-    // Vector2 targetPosition = Vector2.Zero;
-    // string scoreText = "Wynik:";
-    // Vector2 textSize;
-    // const int TARGET_RAFIUS = 50;
-
-    // MouseState mState;
-    // bool mReleased = true;
-    // int score = 0;
-    // int timeText = 60;
-    // float timeFollow = 0;
-
-    // Random rand = new Random();
-
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -41,10 +24,9 @@ public class Game1 : Game
     {
         // TODO: Add your initialization logic here
 
-        // targetPosition.X = rand.Next(TARGET_RAFIUS, _graphics.PreferredBackBufferWidth - TARGET_RAFIUS);
-        // targetPosition.Y = rand.Next(TARGET_RAFIUS, _graphics.PreferredBackBufferHeight - TARGET_RAFIUS);
-
         base.Initialize();
+
+        this.Window.Title = "Karp'O'Killer";
     }
 
     protected override void LoadContent()

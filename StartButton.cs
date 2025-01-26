@@ -46,7 +46,7 @@ public class StartButton
             if (mState.LeftButton == ButtonState.Pressed && mReleased == true)
             {
                 mReleased = false;
-                sceneManager.AddScene(new CoreGame(graphicsDeviceManager, contentManager));
+                sceneManager.AddScene(new CoreGame(graphicsDeviceManager, contentManager, sceneManager));
             }
             if (mState.LeftButton == ButtonState.Released && mReleased == false)
             {

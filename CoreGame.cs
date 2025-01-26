@@ -10,6 +10,7 @@ public class CoreGame : IScene
 {
     private GraphicsDeviceManager graphicsDeviceManager;
     private ContentManager contentManager;
+    private SceneManager sceneManager;
 
     SpriteFont font;
     Texture2D targetTexture;
@@ -28,10 +29,11 @@ public class CoreGame : IScene
 
     Random rand = new Random();
 
-    public CoreGame(GraphicsDeviceManager graphicsDeviceManager, ContentManager contentManager)
+    public CoreGame(GraphicsDeviceManager graphicsDeviceManager, ContentManager contentManager, SceneManager sceneManager)
     {
         this.graphicsDeviceManager = graphicsDeviceManager;
         this.contentManager = contentManager;
+        this.sceneManager = sceneManager;
     }
 
     public void Load()
@@ -51,7 +53,7 @@ public class CoreGame : IScene
 
         mState = Mouse.GetState();
 
-        if (mState.LeftButton == ButtonState.Pressed && mReleased == true)
+        if (mState.LeftButton == ButtonState.Pressed && mReleased == true && timeText > 0)
         {
             float mouseTargetDist = Vector2.Distance(targetPosition, mState.Position.ToVector2());
             if (mouseTargetDist < TARGET_RAFIUS)
@@ -76,6 +78,13 @@ public class CoreGame : IScene
             {
                 timeText = 0;
             }
+        }
+
+        if (timeText <= 0)
+        {
+            // Przełącz na ekran końcowy
+            sceneManager.AddScene(new GameOverScene(graphicsDeviceManager, contentManager, sceneManager, score));
+            return;
         }
     }
 
